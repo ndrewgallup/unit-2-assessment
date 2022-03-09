@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>Unit 2 Assessment</title>
+</head>
+<body>
+  <h1>Book List</h1>
+  <% if(books.length === 0) { %>
+    <h2>There are simply no books yet.</h2>
+  <% } %>
+  <a href="/books/new">Add A New Book</a>
+  <% books.forEach(book => { %>
+    <p><%= book.title %> - <%= book.read ? 'Read' : 'Not Read' %></p>
+    <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
+      <button type="submit">DELETE</button>
+    </form>
+  <% }) %>
+
+</body>
+</html>
